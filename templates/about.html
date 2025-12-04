@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card glass-card shadow-lg">
+            <div class="card-body p-4">
+                <h1 class="h4 mb-3">
+                    <i class="bi bi-info-circle"></i> {{ texts.info_title }}
+                </h1>
+                <p class="mb-3">
+                    {{ texts.info_body }}
+                </p>
+                <ul class="small text-muted"><br>
+                    <div class="neon-sep mb-4"></div>				
+                    <li>App: {{ APP_NAME }} – {{ APP_TITLE }}</li>
+                    <li>Version: {{ APP_VERSION }}</li>
+                    <li>Company: {{ APP_COMPANY }}</li>	
+				    <br><div class="neon-sep mb-4"></div>	
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

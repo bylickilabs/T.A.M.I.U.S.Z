@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h4">
+        <i class="bi bi-database-gear"></i> {{ texts.admin_dashboard_title }}
+    </h1>
+    <a href="{{ url_for('admin_new') }}" class="btn btn-success">
+        <i class="bi bi-plus-circle"></i> {{ texts.admin_add_fact }}
+    </a>
+</div>
+
+<div class="card glass-card shadow-sm">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-dark table-striped table-hover mb-0 align-middle">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>{{ texts.admin_question }}</th>
+                        <th>{{ texts.admin_answer }}</th>
+                        <th>Tags</th>
+                        <th>{{ texts.admin_actions }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fact in facts %}
+                        <tr>
+                            <td class="small">{{ fact.id }}</td>
+                            <td class="small">{{ fact.question }}</td>
+                            <td class="small text-truncate" style="max-width: 260px;">
+                                {{ fact.answer }}
+                            </td>
+                            <td class="small">{{ fact.tags }}</td>
+                            <td class="text-nowrap">
+                                <a href="{{ url_for('admin_edit', fact_id=fact.id) }}"
+                                   class="btn btn-sm btn-outline-info">
+                                    <i class="bi bi-pencil"></i> {{ texts.admin_edit }}
+                                </a>
+                                <form action="{{ url_for('admin_delete', fact_id=fact.id) }}"
+                                      method="post" class="d-inline"
+                                      onsubmit="return confirm('{{ texts.confirm_delete }}');">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                        <i class="bi bi-trash"></i> {{ texts.admin_delete }}
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center text-muted py-3">
+                                Noch keine Erinnerungen angelegt.
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
