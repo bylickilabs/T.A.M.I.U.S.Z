@@ -1,4 +1,6 @@
-# T.A.M.I.U.S.Z  
+|<img width="1280" height="640" alt="T A M I U S Z" src="https://github.com/user-attachments/assets/ba1e4906-cf31-41fe-9463-50e8769440f6" />  |
+|---|
+
 > **Trusted Artificial Memory Interaction & Unified Support Zone**  
   - Powered by **BYLICKILABS – Intelligence Systems & Communications**
 
